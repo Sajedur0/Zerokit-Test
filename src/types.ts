@@ -25,8 +25,9 @@ export interface CardTool {
   description: string;
   icon: string;
   category: 'Creative' | 'Developer' | 'Office' | 'Utility' | 'Marketing' | 'Security' | 'Hardware';
-  bgColor: string;
-  textColor: string;
+  /** Optional per-tool accent values — the shell palette drives the visuals today. */
+  bgColor?: string;
+  textColor?: string;
 }
 
 export interface PasswordRecord {

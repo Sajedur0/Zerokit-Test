@@ -5,11 +5,30 @@
     <link rel="icon" type="image/png" href="./assets/logo.png" />
     <link rel="apple-touch-icon" href="./assets/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ZeroKit - Interactive Web Utilities Blueprint</title>
+    <meta name="theme-color" content="#f4f3ee" />
+    <meta
+      name="description"
+      content="ZeroKit — one quiet workspace for fourteen browser utilities. Nothing you open, paste, or record leaves your device."
+    />
+    <title>ZeroKit — a quieter way to work</title>
+    <script>
+      // Paint the saved theme before first render to avoid a flash.
+      (function () {
+        try {
+          var saved =
+            document.cookie.match(/(?:^|;\s*)zerokit_theme=([^;]+)/)?.[1] ||
+            localStorage.getItem('zerokit_theme') ||
+            '';
+          var mode = saved === 'forest' ? 'forest' : 'paper';
+          document.documentElement.setAttribute('data-theme', mode);
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'paper');
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-
