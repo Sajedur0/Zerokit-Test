@@ -17,7 +17,8 @@ export type ToolType =
   | 'country-codes'
   | 'character-counter'
   | 'json-validator'
-  | 'screen-color-test';
+  | 'screen-color-test'
+  | 'ai-metadata-cleaner';
 
 export interface CardTool {
   id: ToolType;

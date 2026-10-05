@@ -36,5 +36,7 @@ describe('ZeroKit shell', () => {
     DIRECTORY_CLASSES.forEach((cls) => expect(html).toContain(cls));
     expect(html).toContain('Nothing leaves the tab.');
     expect(html).toContain('Pick a tool. Start at once.');
+    expect(html).toContain('AI Metadata Cleaner');
+    expect(html).toContain('15 tools');
   });
 });

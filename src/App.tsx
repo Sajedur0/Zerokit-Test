@@ -23,6 +23,7 @@ import {
   Type,
   FileJson,
   Palette,
+  Eraser,
   Moon,
   Sun,
   Github,
@@ -43,6 +44,7 @@ const CharacterCounter = lazy(() => import('./components/CharacterCounter'));
 const JsonValidator = lazy(() => import('./components/JsonValidator'));
 const PdfTool = lazy(() => import('./components/PdfTool'));
 const ScreenColorTest = lazy(() => import('./components/ScreenColorTest'));
+const AiMetadataCleaner = lazy(() => import('./components/AiMetadataCleaner'));
 import ErrorBoundary from './components/ErrorBoundary';
 import ZkLogo from './components/ZkLogo';
 import { CardTool, ToolType } from './types';
@@ -101,6 +103,7 @@ const VALID_TOOLS: ToolType[] = [
   'character-counter',
   'json-validator',
   'screen-color-test',
+  'ai-metadata-cleaner',
 ];
 
 const getToolFromUrlHash = (): ToolType | null => {
@@ -330,6 +333,13 @@ export default function App() {
         category: 'Hardware',
       },
       {
+        id: 'ai-metadata-cleaner',
+        title: 'AI Metadata Cleaner',
+        description: 'Strip AI-generation metadata and C2PA Content Credentials from any file, byte by byte and offline.',
+        icon: 'ai-metadata',
+        category: 'Security',
+      },
+      {
         id: 'screen-color-test',
         title: 'Screen Color Test',
         description: 'Fullscreen dead-pixel, gradient banding, geometry, convergence, focus, and resolution display diagnostics.',
@@ -404,6 +414,8 @@ export default function App() {
         return <FileJson strokeWidth={strokeWidth} />;
       case 'palette':
         return <Palette strokeWidth={strokeWidth} />;
+      case 'ai-metadata':
+        return <Eraser strokeWidth={strokeWidth} />;
       default:
         return <LayoutGrid strokeWidth={strokeWidth} />;
     }
@@ -476,7 +488,7 @@ export default function App() {
                   <em>Nothing leaves the tab.</em>
                 </h1>
                 <p className="hero-lede">
-                  Fourteen small, focused utilities for images, code, documents, text, and devices. They open instantly,
+                  Fifteen small, focused utilities for images, code, documents, text, and devices. They open instantly,
                   run in this browser, and never ask for an account.
                 </p>
               </div>
@@ -697,6 +709,7 @@ export default function App() {
                     {activeTool === 'character-counter' && <CharacterCounter />}
                     {activeTool === 'json-validator' && <JsonValidator />}
                     {activeTool === 'screen-color-test' && <ScreenColorTest />}
+                    {activeTool === 'ai-metadata-cleaner' && <AiMetadataCleaner />}
                   </Suspense>
                 </ErrorBoundary>
               </div>
@@ -742,7 +755,7 @@ export default function App() {
             <article className="principle-card highlighted-card">
               <span className="card-number">02</span>
               <h3>One quiet workspace</h3>
-              <p>Fourteen tools behind a single search field, so you never hit a sign-up wall mid-task.</p>
+              <p>Fifteen tools behind a single search field, so you never hit a sign-up wall mid-task.</p>
             </article>
             <article className="principle-card">
               <span className="card-number">03</span>
