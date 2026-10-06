@@ -17,7 +17,8 @@ export type ToolType =
   | 'country-codes'
   | 'character-counter'
   | 'json-validator'
-  | 'screen-color-test';
+  | 'screen-color-test'
+  | 'ai-metadata-cleaner';
 
 export interface CardTool {
   id: ToolType;
@@ -25,8 +26,9 @@ export interface CardTool {
   description: string;
   icon: string;
   category: 'Creative' | 'Developer' | 'Office' | 'Utility' | 'Marketing' | 'Security' | 'Hardware';
-  bgColor: string;
-  textColor: string;
+  /** Optional per-tool accent values — the shell palette drives the visuals today. */
+  bgColor?: string;
+  textColor?: string;
 }
 
 export interface PasswordRecord {
